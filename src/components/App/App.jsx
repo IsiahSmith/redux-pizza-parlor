@@ -5,8 +5,8 @@ import Header from '../Header/Header.jsx'
 
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import ClientIntake from '../ClientIntake/ClientIntake';
+import {useEffect} from 'react';
+
 
 
 function App() {
