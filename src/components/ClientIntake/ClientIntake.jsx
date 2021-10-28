@@ -29,31 +29,31 @@ function ClientIntake() {
             {/* name */}
             <input type="text"
             value={clientName}
-            placeholder="name"
+            placeholder="Name"
             onChange={(event) => setClientName(event.target.value)}
             />
             {/* street address */}
             <input type="text"
             value={clientAddress}
-            placeholder="name"
+            placeholder="Street Address"
             onChange={(event) => setClientAddress(event.target.value)}
             />
             {/* city */}
             <input type="text"
             value={clientCity}
-            placeholder="name"
+            placeholder="City"
             onChange={(event) => setClientCity(event.target.value)}
             />
             {/* zip */}
             <input type="text"
             value={clientZip}
-            placeholder="name"
+            placeholder="Zip"
             onChange={(event) => setClientZip(event.target.value)}
             />
             {/* option select for pick vs delivery */}
 
             <button type="submit">Next</button>
-        // </form>
+         </form>
     )
 }
 export default ClientIntake;
