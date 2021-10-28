@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+
+
+
 function ClientIntake() {
     const [clientName, setClientName] = useState('');
     const [clientAddress, setClientAddress] = useState('');
@@ -21,6 +24,7 @@ function ClientIntake() {
     }
 //this is the form connected to handle submit
     return (
+
         <form onSubmit={handleSubmit}>
             {/* name */}
             <input type="text"
@@ -47,8 +51,9 @@ function ClientIntake() {
             onChange={(event) => setClientZip(event.target.value)}
             />
             {/* option select for pick vs delivery */}
+
             <button type="submit">Next</button>
-        </form>
+        // </form>
     )
 }
 export default ClientIntake;
