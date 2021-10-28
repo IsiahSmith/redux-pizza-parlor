@@ -7,8 +7,25 @@ function ClientIntake() {
     const [clientAddress, setClientAddress] = useState('');
     const [clientCity, setClientCity] = useState('');
     const [clientZip, setClientZip] = useState('');
+    const dispatch = useDispatch();
 
 
+    //onCLick, ship this stuff off to redux's state
+    const handleSubmit = () => {
+
+            event.preventDefault();
+            dispatch({
+                type:'SET_CHECKOUT_LIST',
+                payload: { 
+                    customer_name: clientName,
+                    street_address: clientAddress,
+                    city: clientCity,
+                    zip: clientZip
+                }
+            })
+    }
+
+//this is the form connected to handle submit
     return (
         <form onSubmit={handleSubmit}>
             {/* name */}

@@ -4,7 +4,8 @@ import './index.css';
 import App from './components/App/App';
 //create Store - combine reducers and middleware
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-
+import logger from 'redux-logger';
+import { Provider } from 'react-redux';
 
 //Reducer
 const checkoutList = (state =[ ], action) => {
@@ -34,5 +35,7 @@ const pizzaStore = createStore(
 
 
 ReactDOM.render(
-    <App />,
+    <Provider store={pizzaStore}>
+    <App />
+    </Provider>,
     document.getElementById('root'));
