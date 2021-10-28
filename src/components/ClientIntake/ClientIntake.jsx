@@ -1,24 +1,25 @@
 import { useDispatch } from 'react-redux';
+import {useState} from 'react';
 
 
 function ClientIntake() {
     let [clientIntake, setClientIntake] = useState('');
 
     return (
-        <form onSubmit={handleSubmit}>
-            {/* name */}
+        // <form onSubmit={handleSubmit}>
+            // {/* name */}
             
-            {/* street address */}
+            // {/* street address */}
 
-            {/* city */}
+            // {/* city */}
 
-            {/* zip */}
+            // {/* zip */}
 
-            {/* option select for pick vs delivery */}
+            // {/* option select for pick vs delivery */}
 
 
             <button type="submit">Next</button>
-        </form>
+        // </form>
     )
 }
 
