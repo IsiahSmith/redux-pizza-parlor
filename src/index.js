@@ -5,18 +5,18 @@ import App from './components/App/App';
 //create Store - combine reducers and middleware
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-
 //Reducer
-const checkoutList = (state =[ ], action) => {
+const checkoutList = (state = [ ], action) => {
     if (action.type === 'SET_CHECKOUT_LIST'){
         //this will replace the checkoutList
-        //payload is ...?
+        //payload is an array
+        //might need to spread later
         return action.payload;
     }
     return state;
 }
 
-const AdminList = (state = [ ], action) => {
+const adminList = (state = [ ], action) => {
     if (action.type === 'SET_ADMIN_LIST'){
         return action.payload;
     }
@@ -27,7 +27,7 @@ const AdminList = (state = [ ], action) => {
 const pizzaStore = createStore(
     combineReducers({
         checkoutList, 
-        AdminList
+        adminList
     }), 
     applyMiddleware (logger)
 );
