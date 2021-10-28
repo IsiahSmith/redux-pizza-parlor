@@ -6,6 +6,7 @@ import Header from '../Header/Header.jsx'
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import ClientIntake from '../ClientIntake/ClientIntake';
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
 
         <img src='images/pizza_photo.png' />
         <p>Pizza is great.</p>
-
+    <ClientIntake/>
       </div>
     </Router>
   );
