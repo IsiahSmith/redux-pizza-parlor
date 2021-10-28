@@ -5,6 +5,12 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 
+
+
+
+function App() {
+const dispatch = useDispatch();
+
 //GET from pizza router for menu/client info
 function refreshPizza() {
   axios({
@@ -22,11 +28,6 @@ function refreshPizza() {
       console.log('ERROR IN GET /PIZZA', error);
     })
 }
-
-
-function App() {
-
-
 
   return (
     <Router>
