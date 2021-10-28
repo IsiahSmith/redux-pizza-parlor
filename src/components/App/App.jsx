@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 
 import { useEffect } from 'react';
 import ClientIntake from '../ClientIntake/ClientIntake';
+import Menu from '../Menu/Menu.jsx';
 
 
 function App() {
@@ -42,11 +43,20 @@ function App() {
     <Router>
       <div className='App'>
 
-        <Header />
+        <Route path="/Header">
+          <Header />
+        </Route>
+
+        <Route path="/Menu">
+          <Menu refreshPizza={refreshPizza} />
+        </Route>
 
         <img src='images/pizza_photo.png' />
         <p>Pizza is great.</p>
-    <ClientIntake/>
+
+        <Route path="/ClientIntake">
+          <ClientIntake />
+        </Route>
       </div>
     </Router>
   );

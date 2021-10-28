@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-
-
 function ClientIntake() {
     const [clientName, setClientName] = useState('');
     const [clientAddress, setClientAddress] = useState('');
