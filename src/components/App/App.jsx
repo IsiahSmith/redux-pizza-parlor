@@ -9,25 +9,32 @@ import { useDispatch } from 'react-redux';
 
 
 function App() {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-//GET from pizza router for menu/client info
-function refreshPizza() {
-  axios({
-    method: 'GET',
-    url: '/api/pizza'
-  })
-    .then(response => {
-      console.log('IN /PIZZA GET:', response.data);
-      dispatch({
-        type: 'SET_PIZZA', //<----- Katherine;s action.type here
-        payload: response.data
+  //grab from DB on page refresh
+  useEffect(() => {
+    console.log('in useEffect');
+    refreshPizza();
+  }, []);
+
+
+  //GET from pizza router for menu/client info
+  function refreshPizza() {
+    axios({
+      method: 'GET',
+      url: '/api/pizza'
+    })
+      .then(response => {
+        console.log('IN /PIZZA GET:', response.data);
+        dispatch({
+          type: 'SET_PIZZA', //<----- Katherine's action.type here
+          payload: response.data
+        })
       })
-    })
-    .catch(error => {
-      console.log('ERROR IN GET /PIZZA', error);
-    })
-}
+      .catch(error => {
+        console.log('ERROR IN GET /PIZZA', error);
+      })
+  }
 
   return (
     <Router>
