@@ -4,6 +4,8 @@ import './index.css';
 import App from './components/App/App';
 //create Store - combine reducers and middleware
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+//ADDED LOGGER- NPM INSTALL 
+import logger from 'redux-logger';
 
 //Reducer
 const checkoutList = (state = [ ], action) => {
