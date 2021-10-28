@@ -37,12 +37,6 @@ After starting up the server, the following routes should be available. You can 
 
 **Returns** an array of objects with *
 
-
-
-
-
-
-
 *, *name*, *description*, *image_path* and *cost* properties. 
 
 ### POST ORDER
