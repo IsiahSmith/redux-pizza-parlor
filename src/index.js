@@ -6,10 +6,13 @@ import App from './components/App/App';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 //ADDED LOGGER- NPM INSTALL 
 import logger from 'redux-logger';
+//npm install react-redux 
+import { Provider } from 'react-redux';
+
 
 //Reducer
-const checkoutList = (state = [ ], action) => {
-    if (action.type === 'SET_CHECKOUT_LIST'){
+const checkoutList = (state = [], action) => {
+    if (action.type === 'SET_CHECKOUT_LIST') {
         //this will replace the checkoutList
         //payload is an array
         //might need to spread later
@@ -18,8 +21,8 @@ const checkoutList = (state = [ ], action) => {
     return state;
 }
 
-const adminList = (state = [ ], action) => {
-    if (action.type === 'SET_ADMIN_LIST'){
+const adminList = (state = [], action) => {
+    if (action.type === 'SET_ADMIN_LIST') {
         return action.payload;
     }
     return state;
@@ -28,13 +31,15 @@ const adminList = (state = [ ], action) => {
 //Store 
 const pizzaStore = createStore(
     combineReducers({
-        checkoutList, 
+        checkoutList,
         adminList
-    }), 
-    applyMiddleware (logger)
+    }),
+    applyMiddleware(logger)
 );
 
 
 ReactDOM.render(
-    <App />,
+    <Provider store={pizzaStore}>
+        <App />
+    </Provider>,
     document.getElementById('root'));
