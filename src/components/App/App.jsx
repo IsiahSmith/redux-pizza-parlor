@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 
 import { useEffect } from 'react';
 import ClientIntake from '../ClientIntake/ClientIntake';
-
+import Menu from '../Menu/Menu';
 
 function App() {
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ function App() {
       <div className='App'>
 
         <Header />
-
+        {/* <Menu /> */}
         <img src='images/pizza_photo.png' />
         <p>Pizza is great.</p>
     <ClientIntake/>
