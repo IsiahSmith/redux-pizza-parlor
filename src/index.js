@@ -16,7 +16,7 @@ const checkoutList = (state =[ ], action) => {
     return state;
 }
 
-const AdminList = (state = [ ], action) => {
+const adminList = (state = [ ], action) => {
     if (action.type === 'SET_ADMIN_LIST'){
         return action.payload;
     }
@@ -27,7 +27,7 @@ const AdminList = (state = [ ], action) => {
 const pizzaStore = createStore(
     combineReducers({
         checkoutList, 
-        AdminList
+        adminList
     }), 
     applyMiddleware (logger)
 );

@@ -4,14 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function AdminList () {
 
-    const orderList = useSelector(pizzaStore => pizzaStore.orderList);
-    const dispatch = useDispact();
+    const adminList = useSelector(pizzaStore => pizzaStore.adminList);
+    const dispatch = useDispatch();
 
     axios
     .get('/api/order')
     .then(response => {
         dispatch({
-            type: 'SET_PIZZA_TYPE',
+            type: 'SET_ADMIN_LIST',
             payload: response.data
         })
     })
@@ -32,12 +32,12 @@ function AdminList () {
                     </tr>
                 </thead>
                 <tbody>
-                    {orderList.map((order) => 
+                    {adminList.map((order) => 
                           <tr key={order.id}>
-                          <td>{order.name}</td>
+                          <td>{order.customer_name}</td>
                           <td>{order.time}</td>
                           <td>{order.type}</td>
-                          <td>{order.cost}</td>
+                          <td>{order.total}</td>
                       </tr>
                     )}
                 </tbody>
