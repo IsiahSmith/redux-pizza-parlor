@@ -21,7 +21,7 @@ function Menu({refreshPizza}) {
         <>  
             <Header />
             <h2>Step 1: Select Your Pizza</h2>
-            
+
             <button onClick={handleButton}>NEXT</button>
         </>
     )
