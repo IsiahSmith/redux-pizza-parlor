@@ -4,7 +4,7 @@ Before you get started make sure to read through **ALL** requirements and outlin
 
 ### Setup
 
-Server side code for baseline functionality has been provided for you. Each member of your team will need to create a `pizza_parlor` database.
+Server side code for baseline functionality has been provided for you. Each member of your team will need to create a `` database.
 
 **Import data**
 
@@ -36,12 +36,6 @@ After starting up the server, the following routes should be available. You can 
 `/api/pizza`
 
 **Returns** an array of objects with *
-
-
-
-
-
-
 
 *, *name*, *description*, *image_path* and *cost* properties. 
 
