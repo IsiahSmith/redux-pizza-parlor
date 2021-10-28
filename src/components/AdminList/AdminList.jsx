@@ -22,6 +22,7 @@ function AdminList () {
 
 
     return (
+        <div>
             <table>
                 <thead>
                     <tr>
@@ -42,6 +43,7 @@ function AdminList () {
                     )}
                 </tbody>
             </table>
+            </div>
     );
 };
 
