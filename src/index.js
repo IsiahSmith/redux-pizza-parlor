@@ -11,18 +11,16 @@ import { Provider } from 'react-redux';
 
 
 
-//Reducer
-const checkoutList = (state = [], action) => {
-    if (action.type === 'SET_CHECKOUT_LIST') {
-        //this will replace the checkoutList
-        //payload is an array
-        //might need to spread later
+//Reducer that set the menu page from database
+const MenuList = (state = [], action) => {
+    if (action.type === 'SET_MENU_LIST') {
         return action.payload;
     }
     return state;
 }
 
-
+// reducer that add pizzas and client info to checkout page
+// also empties cart
 const pizzaAdder = (state = [], action) => {
     if (action.type === 'ADD_PIZZA') {
         return [...state, action.payload]
@@ -31,6 +29,8 @@ const pizzaAdder = (state = [], action) => {
             (pizza) => Number(pizza.id) !== Number(action.payload.id)
         )
         return state
+    } else if (action.type === 'EMPTY_CART') {
+        return state = []
     }
     return state
 }
@@ -56,7 +56,7 @@ const pizzaPrice = (state = [], action) => {
 const pizzaStore = createStore(
     combineReducers({
 
-        checkoutList,
+        MenuList,
         adminList,
         pizzaPrice,
         pizzaAdder
