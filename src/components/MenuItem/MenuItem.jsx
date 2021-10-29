@@ -1,7 +1,7 @@
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {useState} from 'react';
 
-function MenuItem({pizza, refreshPizza}) {
+function MenuItem({pizza}) {
     const [toRemove, setToRemove] = useState(true)
 
     const dispatch = useDispatch();
@@ -15,6 +15,10 @@ function MenuItem({pizza, refreshPizza}) {
             type: 'ADD_PIZZA',
             payload: pizza
         })
+        dispatch({
+            type: 'SET_PRICE',
+            payload: pizza.price
+        })
         toggleRemove();
     }
 
@@ -23,14 +27,23 @@ function MenuItem({pizza, refreshPizza}) {
             type: 'REMOVE_PIZZA',
             payload: pizza
         })
+        dispatch({
+            type: 'REMOVE_PRICE',
+            payload: pizza.price
+        })
         toggleRemove();
     }
 
 
 
+
     return (
         <div>
-            <img src={pizza.image_path} />
+            <img 
+            src={pizza.image_path} 
+            width='150px'
+            height='150px'
+            />
             <div>
                 <h2>{pizza.name}</h2>
                 <p>{pizza.description}</p>

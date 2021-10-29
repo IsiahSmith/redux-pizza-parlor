@@ -42,8 +42,8 @@ function App() {
     <Router>
       <div className='App'>
 
-        <Header />
-        {/* <Menu /> */}
+        {/* <Header /> */}
+        <Menu />
         <img src='images/pizza_photo.png' />
         <p>Pizza is great.</p>
     <ClientIntake/>

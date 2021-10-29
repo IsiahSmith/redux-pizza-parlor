@@ -3,28 +3,21 @@ import { useSelector } from 'react-redux';
 import {useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import MenuItem from '../MenuItem/MenuItem';
+import axios from 'axios';
+import Header from '../Header/Header';
 
 function Menu() {
-    // let [pizzaToAdd, setPizzaToAdd] = useState({name:'', description: '', price: '', image_path: ''})
-
     const pizzaList = useSelector(store => store.checkoutList)
 
     const dispatch = useDispatch();
 
     const history = useHistory();
 
-    // const setPizzaToAdd = () => {
-    //         dispatch({
-    //             type: 'SET_CHECKOUT_LIST',
-    //             payload: pizzaToAdd
-    //         })
-    //         history.push('/clientIntake');
-    //     }
+  
     useEffect(() => {
         console.log('in useEffect');
         refreshPizza();
       }, []);
-
 
     function refreshPizza() {
         axios({
@@ -43,6 +36,7 @@ function Menu() {
           })
       }
 
+
     return(
         <>  
             <Header />
@@ -52,7 +46,7 @@ function Menu() {
                         <MenuItem 
                         key={i} 
                         pizza={pizza}
-                        refreshPizza={refreshPizza} />
+                        />
                     ))}
                 </div>
             <button onClick={history.push('/clientIntake')}>NEXT</button>
