@@ -10,6 +10,7 @@ import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 
 
+
 //Reducer
 const checkoutList = (state = [], action) => {
     if (action.type === 'SET_CHECKOUT_LIST') {
@@ -30,12 +31,21 @@ const adminList = (state = [], action) => {
     return state;
 }
 
+
+const pizzaPrice = (state = [], action) => {
+    if (action.type === 'SET_PRICE') {
+        return action.payload;
+    }
+    return state;
+}
+
 //Store 
 const pizzaStore = createStore(
     combineReducers({
 
         checkoutList,
-        adminList
+        adminList,
+        pizzaPrice
     }),
     applyMiddleware(logger)
 
@@ -44,6 +54,6 @@ const pizzaStore = createStore(
 
 ReactDOM.render(
     <Provider store={pizzaStore}>
-        <App />
+    <App />
     </Provider>,
     document.getElementById('root'));
