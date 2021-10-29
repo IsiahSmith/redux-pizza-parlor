@@ -33,12 +33,13 @@ function CheckoutList() {
         <div>
             <div>
                 {checkoutList.map((checkout) => {
-                    <ul>
+                   return(
+                   <ul>
 
                         <li key={checkout.id}> {checkout.customer_name} </li>
                         <li> {checkout.street_address} </li>
                         <li> {checkout.city} {','} {checkout.state} </li>
-                    </ul>
+                    </ul>)
                 })}
             </div>
             <div>
