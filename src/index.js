@@ -10,6 +10,7 @@ import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 
 
+
 //Reducer
 const checkoutList = (state = [], action) => {
     if (action.type === 'SET_CHECKOUT_LIST') {
@@ -53,6 +54,6 @@ const pizzaStore = createStore(
 
 ReactDOM.render(
     <Provider store={pizzaStore}>
-        <App />
+    <App />
     </Provider>,
     document.getElementById('root'));
