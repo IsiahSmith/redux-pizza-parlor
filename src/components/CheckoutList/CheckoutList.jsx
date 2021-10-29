@@ -7,24 +7,24 @@ function CheckoutList() {
     const dispatch = useDispatch();
     const checkoutList = useSelector(store => store.checkoutList);
     const adminList = useSelector(store => store.adminList);
-// handles click function of pizza and personal info 
+    // handles click function of pizza and personal info 
     const handleClick = () => {
-        axios.post('/api/order', {checkoutList, adminList})
-        .then(response => {
-     dispatch({
-         type: 'SET_CHECKOUT_LIST',
-         payload: []
+        axios.post('/api/order', { checkoutList, adminList })
+            .then(response => {
+                dispatch({
+                    type: 'SET_CHECKOUT_LIST',
 
-     })
-        //send a action to reducer to clear cart 
- 
-        })
-        .catch(error => {
-          console.log('error in post', error);
-          alert('POST ghost')
-        })
-          };
-    
+
+                })
+                //send a action to reducer to clear cart 
+
+            })
+            .catch(error => {
+                console.log('error in post', error);
+                alert('POST ghost')
+            })
+    };
+
     return (
         <div>
             <div>
