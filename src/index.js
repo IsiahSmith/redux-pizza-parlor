@@ -23,6 +23,19 @@ const checkoutList = (state = [], action) => {
 }
 
 
+const pizzaAdder = (state = [], action) => {
+    if (action.type === 'ADD_PIZZA') {
+        return [...state, action.payload]
+    } else if (action.type === 'REMOVE_PIZZA') {
+        state = state.filter(
+            (pizza) => Number(pizza.id) !== Number(action.payload.id)
+        )
+        return state
+    }
+    return state
+}
+
+
 const adminList = (state = [], action) => {
     if (action.type === 'SET_ADMIN_LIST') {
 
@@ -45,7 +58,8 @@ const pizzaStore = createStore(
 
         checkoutList,
         adminList,
-        pizzaPrice
+        pizzaPrice,
+        pizzaAdder
     }),
     applyMiddleware(logger)
 
