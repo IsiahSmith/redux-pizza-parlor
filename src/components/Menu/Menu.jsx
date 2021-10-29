@@ -1,33 +1,41 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import {useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
-import Header from '../Header/Header.jsx'
+import MenuItem from '../MenuItem/MenuItem';
+import axios from 'axios';
+import Header from '../Header/Header';
 
-function Menu({refreshPizza}) {
-
-    const [pizzaToAdd, setPizzaToAdd] = useState({
-        name:'', 
-        description: '', 
-        price: '', 
-        image_path: ''
-    });
-
+function Menu() {
     const pizzaList = useSelector(store => store.checkoutList)
 
     const dispatch = useDispatch();
 
     const history = useHistory();
 
-    //Changed setPizzaToAdd to dispatchPizza 
-    const dispatchPizza = () => {
+  
+    useEffect(() => {
+        console.log('in useEffect');
+        refreshPizza();
+      }, []);
+
+    function refreshPizza() {
+        axios({
+          method: 'GET',
+          url: '/api/pizza'
+        })
+          .then(response => {
+            console.log('IN /PIZZA GET:', response.data);
             dispatch({
-                type: 'SET_CHECKOUT_LIST',
-                payload: pizzaToAdd
+              type: 'SET_CHECKOUT_LIST', //<----- Katherine's action.type here
+              payload: response.data
             })
-            history.push('/clientIntake');
-            // NEXT button click moves User to the next form! 
-        }
+          })
+          .catch(error => {
+            console.log('ERROR IN GET /PIZZA', error);
+          })
+      }
+
 
     return(
         <>  
@@ -38,11 +46,10 @@ function Menu({refreshPizza}) {
                         <MenuItem 
                         key={i} 
                         pizza={pizza}
-                        refreshPizza={refreshPizza} />
+                        />
                     ))}
                 </div>
-                {/* switched handle click to dispatch pizza */}
-            <button onClick={dispatchPizza}>NEXT</button>
+            <button onClick={history.push('/clientIntake')}>NEXT</button>
         </>
     )
 }
