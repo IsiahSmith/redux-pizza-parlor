@@ -16,7 +16,7 @@ const checkoutList = (state = [], action) => {
         //this will replace the checkoutList
         //payload is an array
         //might need to spread later
-        return action.payload;
+        return [];
     }
     return state;
 }
