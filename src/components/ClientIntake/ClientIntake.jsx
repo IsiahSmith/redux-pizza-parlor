@@ -7,7 +7,7 @@ function ClientIntake() {
     const [clientAddress, setClientAddress] = useState('');
     const [clientCity, setClientCity] = useState('');
     const [clientZip, setClientZip] = useState('');
-    const [clientDelivery, setClientDelivery] = ('');
+    const [clientDelivery, setClientDelivery] = useState('');
     const dispatch = useDispatch();
     //onCLick, ship this stuff off to redux's state
     const handleSubmit = () => {
@@ -18,7 +18,8 @@ function ClientIntake() {
                 customer_name: clientName,
                 street_address: clientAddress,
                 city: clientCity,
-                zip: clientZip
+                zip: clientZip,
+                Delivery: clientDelivery
             }
         })
     }
@@ -69,13 +70,16 @@ function ClientIntake() {
                 <input type="radio" 
                 value="Pick up" 
                 name="Delivery" 
+                onChange={(event) => setClientDelivery(event.target.value)}
                 /> 
                 </div>
                 <div>
                 <label> Delivery </label>
                 <input type="radio" 
                 value="Delivery" 
-                name="Delivery" />
+                name="Delivery" 
+                onChange={(event) => setClientDelivery(event.target.value)}
+                />
                 </div>
             </div>
             <button type="submit">Next</button>
