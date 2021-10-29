@@ -7,7 +7,7 @@ import axios from 'axios';
 import Header from '../Header/Header';
 
 function Menu() {
-    const pizzaList = useSelector(store => store.checkoutList)
+    const pizzaList = useSelector(store => store.MenuList)
 
     const dispatch = useDispatch();
 
@@ -27,7 +27,7 @@ function Menu() {
           .then(response => {
             console.log('IN /PIZZA GET:', response.data);
             dispatch({
-              type: 'SET_CHECKOUT_LIST', //<----- Katherine's action.type here
+              type: 'SET_MENU_LIST', //<----- Katherine's action.type here
               payload: response.data
             })
           })

@@ -16,13 +16,13 @@ function ClientIntake() {
     const handleSubmit = () => {
         event.preventDefault();
         dispatch({
-            type: 'SET_CHECKOUT_LIST',
+            type: 'ADD_PIZZA',
             payload: {
                 customer_name: clientName,
                 street_address: clientAddress,
                 city: clientCity,
                 zip: clientZip,
-                Delivery: clientDelivery
+                type: clientDelivery
             }
         })
          //on click send user to the Checkout PAGE
