@@ -30,12 +30,21 @@ const adminList = (state = [], action) => {
     return state;
 }
 
+
+const pizzaPrice = (state = [], action) => {
+    if (action.type === 'SET_PRICE') {
+        return action.payload;
+    }
+    return state;
+}
+
 //Store 
 const pizzaStore = createStore(
     combineReducers({
 
         checkoutList,
-        adminList
+        adminList,
+        pizzaPrice
     }),
     applyMiddleware(logger)
 

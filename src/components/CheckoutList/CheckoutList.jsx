@@ -1,10 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios'
+import { useHistory} from 'react-router-dom';
 
 
 function CheckoutList() {
     const dispatch = useDispatch();
+    const history = useHistory();
+
     const checkoutList = useSelector(store => store.checkoutList);
     const adminList = useSelector(store => store.adminList);
     // handles click function of pizza and personal info 
@@ -13,9 +16,10 @@ function CheckoutList() {
             .then(response => {
                 dispatch({
                     type: 'SET_CHECKOUT_LIST',
-
-
                 })
+                history.push('/Menu');
+                //on click send user to HOME 
+
                 //send a action to reducer to clear cart 
 
             })
